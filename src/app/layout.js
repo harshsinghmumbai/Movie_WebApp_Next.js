@@ -1,7 +1,8 @@
 import { Outfit } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
-import { ThemeProvider } from "@/components/ThemeProvider";
+import { ThemeProvider } from "@/components/ui/ThemeProvider";
+import Scroll_To_Top from "@/components/Scroll_To_Top";
 
 const outfit = Outfit({ subsets: ["latin"] });
 
@@ -17,7 +18,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={outfit.className}>
-        <main className="max-w-[1300px] m-auto ">
+        <main className="max-w-[1300px] m-auto">
           <ThemeProvider
             attribute="class"
             defaultTheme="light"
@@ -25,6 +26,7 @@ export default function RootLayout({ children }) {
             disableTransitionOnChange
           >
             <Header />
+            <Scroll_To_Top />
             {children}
           </ThemeProvider>
         </main>

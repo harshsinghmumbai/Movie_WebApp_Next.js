@@ -1,5 +1,4 @@
 "use client";
-import Card_Items from "@/components/Card_Items";
 import { Input } from "@/components/ui/input";
 import { IoSearch } from "react-icons/io5";
 import { useEffect, useState } from "react";
@@ -20,7 +19,7 @@ export default function Home() {
   async function getMoviedata() {
     try {
       const response = await fetch(
-        "https://api.themoviedb.org/3/discover/movie?include_adult=true&include_video=true&language=en-US&page=2&sort_by=popularity.desc",
+        "https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=true&language=en-US&page=2&sort_by=popularity.desc",
         options
       );
       const data = await response.json();
@@ -34,14 +33,13 @@ export default function Home() {
   }, []);
   return (
     <>
-      <h1 className="text-xl hover:underline hover:underline-offset-2 hover:decoration-1 font-semibold text-center md:tracking-wide">
+      <h1 className="text-xl hover:underline hover:underline-offset-2 hover:decoration-1 font-semibold text-center md:tracking-wide dark:text-black">
         Search Your Favorite Movie
       </h1>
       <div className="mt-4 w-[80%] m-auto md:w-[320px] relative mb-5">
         <Input placeholder="Enter Movie Name" className="text-base px-9" />
         <IoSearch className="text-xl absolute top-[9px] left-[7px] text-gray-600" />
       </div>
-      <Card_Items movies={movies} />
     </>
   );
 }

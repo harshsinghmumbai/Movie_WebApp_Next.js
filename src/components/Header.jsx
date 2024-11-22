@@ -22,7 +22,7 @@ const Header = () => {
           <div className="sm:hidden">
             <Sheet>
               <SheetTrigger asChild>
-                <Menu className="dark:text-black" />
+                <Menu />
               </SheetTrigger>
               <SheetContent side={"left"}>
                 <SheetHeader>
